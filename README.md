@@ -20,7 +20,8 @@ Static HTML, hosted on Vercel. Lead capture via Web3Forms → `jpindustries108@g
 ├── sitemap.xml         # Search-engine sitemap
 ├── vercel.json         # Caching + security headers
 └── assets/
-    └── goyal-ji.png    # Logo
+    ├── goyal-ji.svg    # Primary logo (Hindi/Devanagari, vector — used in nav, footer, favicon, JSON-LD logo)
+    └── goyal-ji.png    # Raster logo (used for OG/Twitter card image and apple-touch-icon — social previewers don't render SVG)
 ```
 
 ## Configuration to fill in
