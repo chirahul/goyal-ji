@@ -21,39 +21,8 @@
   <meta name="twitter:image" content="https://goyalji.in/assets/goyal-ji.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/dist/styles.css?v=10.0.0">
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            goyal: {
-              50: '#fef5f2', 100: '#fde8e1', 200: '#fad0c3', 300: '#f5a58a',
-              400: '#ed7d5a', 500: '#e05a2d', 600: '#c7421a', 700: '#a33515',
-              800: '#862e14', 900: '#6d2812', 950: '#2d0e05',
-            },
-            gold: '#d4a853',
-          },
-          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] },
-        }
-      }
-    }
-  </script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-    html { scroll-behavior: smooth; }
-    body::before { content: ''; position: fixed; inset: 0; z-index: 999; pointer-events: none; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
-    .mesh-gradient { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.07; pointer-events: none; }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .glass { background: rgba(255,255,255,0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-    .hover-lift { transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s cubic-bezier(0.16,1,0.3,1); }
-    .hover-lift:hover { transform: translateY(-3px); box-shadow: 0 16px 48px -12px rgba(0,0,0,0.1); }
-    .gradient-text { background: linear-gradient(135deg, #ed7d5a 0%, #c7421a 50%, #a33515 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    @keyframes wa-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4); } 70% { box-shadow: 0 0 0 12px rgba(37,211,102,0); } }
-    .wa-pulse { animation: wa-pulse 2s 3; }
-  </style>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>

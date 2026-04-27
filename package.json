@@ -1,0 +1,14 @@
+{
+  "name": "goyalji-site",
+  "version": "10.0.0",
+  "private": true,
+  "description": "Goyal Ji — manufacturers of processed food products. Static site (built with Tailwind CLI), deployed to Vercel at https://goyalji.in.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
+    "build": "npm run build:css",
+    "watch": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
+  }
+}
