@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -554,6 +555,16 @@
   </div>
 
   <script>
+    // Entry stagger animation — runs once on load if GSAP is loaded and motion is allowed
+    if (typeof gsap !== 'undefined' && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.from('nav', { opacity: 0, y: -10, duration: 0.6, ease: 'power2.out' });
+      const heroReveal = document.querySelector('section:first-of-type .reveal');
+      if (heroReveal) {
+        heroReveal.classList.add('visible');
+        gsap.from(heroReveal.children, { opacity: 0, y: 24, stagger: 0.08, duration: 0.7, ease: 'power2.out', delay: 0.1 });
+      }
+    }
+
     document.getElementById('menu-toggle').addEventListener('click', () => {
       document.getElementById('mobile-menu').classList.toggle('hidden');
     });
