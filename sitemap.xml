@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://goyalji.vercel.app/</loc>
+    <loc>https://goyalji.in/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://goyalji.vercel.app/about.html</loc>
+    <loc>https://goyalji.in/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://goyalji.vercel.app/products.html</loc>
+    <loc>https://goyalji.in/products.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://goyalji.vercel.app/quality.html</loc>
+    <loc>https://goyalji.in/quality.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://goyalji.vercel.app/contact.html</loc>
+    <loc>https://goyalji.in/contact.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://goyalji.vercel.app/privacy.html</loc>
+    <loc>https://goyalji.in/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://goyalji.vercel.app/terms.html</loc>
+    <loc>https://goyalji.in/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

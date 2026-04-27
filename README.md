@@ -25,11 +25,10 @@ Static HTML, hosted on Vercel. Lead capture via Web3Forms → `jpindustries108@g
 
 ## Configuration to fill in
 
-Before going live, do a global find-and-replace in all `*.html`, `robots.txt`, and `sitemap.xml` for:
+Production domain is `https://goyalji.in` (GoDaddy, pointing at Vercel). Two placeholders remain — do a global find-and-replace in `*.html` for:
 
 | Placeholder | Replace with |
 |---|---|
-| `https://goyalji.vercel.app` | Your actual production URL (apex domain, no trailing slash) |
 | `YOUR_WEB3FORMS_ACCESS_KEY` | Web3Forms access key — get one at <https://web3forms.com> using `jpindustries108@gmail.com` |
 | `G-XXXXXXXXXX` | Your GA4 Measurement ID from Google Analytics |
 

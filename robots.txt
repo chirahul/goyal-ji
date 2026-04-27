@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://goyalji.vercel.app/sitemap.xml
+Sitemap: https://goyalji.in/sitemap.xml
