@@ -33,7 +33,7 @@ Before going live, do a global find-and-replace in all `*.html`, `robots.txt`, a
 | `YOUR_WEB3FORMS_ACCESS_KEY` | Web3Forms access key — get one at <https://web3forms.com> using `jpindustries108@gmail.com` |
 | `G-XXXXXXXXXX` | Your GA4 Measurement ID from Google Analytics |
 
-Also update placeholders in `privacy.html` (GSTIN, FSSAI, Udyam) when you have them.
+GSTIN, FSSAI, and Udyam (MSME) numbers are now live across the site (homepage trust bar, quality page certifications, footer tooltips, JSON-LD identifiers, privacy/terms legal pages).
 
 ## Local preview
 
