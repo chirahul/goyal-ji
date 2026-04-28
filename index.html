@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Goyal Ji — Manufacturers of 3D Fryums, Papad, Soya Wadi, Makkai Poha | Nagpur</title>
   <meta name="description" content="Goyal Ji — Nagpur-based manufacturer of processed food products: 3D Fryums, Jeera Papad, Soya Wadi, and Makkai Poha. FSSAI &amp; ISO 22000 certified. Pan-India distribution.">
-  <meta name="theme-color" content="#c7421a">
+  <meta name="theme-color" content="#D94B17">
   <link rel="icon" type="image/svg+xml" href="/assets/goyal-ji.svg">
   <link rel="apple-touch-icon" href="/assets/goyal-ji.png">
   <link rel="canonical" href="https://goyalji.in/">
@@ -21,8 +21,10 @@
   <meta name="twitter:image" content="https://goyalji.in/assets/goyal-ji.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter+Tight:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&family=JetBrains+Mono:wght@500&display=swap">
   <link rel="stylesheet" href="/dist/styles.css?v=10.0.0">
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -68,7 +70,39 @@
   }
   </script>
 </head>
-<body class="bg-[#faf8f6] text-gray-900 font-sans antialiased overflow-x-hidden">
+<body class="bg-paper text-ink font-sans antialiased overflow-x-hidden" data-page="home">
+
+  <!-- Partner-cities ticker -->
+  <div class="ticker" aria-label="Distribution cities">
+    <div class="ticker__viewport">
+      <div class="ticker__track" id="ticker-track">
+        <span class="ticker__item">Nagpur</span>
+        <span class="ticker__item">Mumbai</span>
+        <span class="ticker__item">Pune</span>
+        <span class="ticker__item">Delhi</span>
+        <span class="ticker__item">Kolkata</span>
+        <span class="ticker__item">Hyderabad</span>
+        <span class="ticker__item">Bangalore</span>
+        <span class="ticker__item">Indore</span>
+        <span class="ticker__item">Raipur</span>
+        <span class="ticker__item">Bhopal</span>
+        <span class="ticker__item">Ahmedabad</span>
+        <span class="ticker__item">Lucknow</span>
+        <span class="ticker__item" aria-hidden="true">Nagpur</span>
+        <span class="ticker__item" aria-hidden="true">Mumbai</span>
+        <span class="ticker__item" aria-hidden="true">Pune</span>
+        <span class="ticker__item" aria-hidden="true">Delhi</span>
+        <span class="ticker__item" aria-hidden="true">Kolkata</span>
+        <span class="ticker__item" aria-hidden="true">Hyderabad</span>
+        <span class="ticker__item" aria-hidden="true">Bangalore</span>
+        <span class="ticker__item" aria-hidden="true">Indore</span>
+        <span class="ticker__item" aria-hidden="true">Raipur</span>
+        <span class="ticker__item" aria-hidden="true">Bhopal</span>
+        <span class="ticker__item" aria-hidden="true">Ahmedabad</span>
+        <span class="ticker__item" aria-hidden="true">Lucknow</span>
+      </div>
+    </div>
+  </div>
 
   <!-- Navigation -->
   <nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl z-50">
@@ -107,41 +141,34 @@
     </div>
   </nav>
 
-  <!-- 1. Hero Section -->
-  <section class="relative pt-32 pb-16 md:pt-48 md:pb-28 overflow-hidden min-h-[60vh] md:min-h-0 flex items-center">
-    <div class="mesh-gradient w-[500px] h-[500px] md:w-[600px] md:h-[600px] bg-goyal-400 top-[-200px] right-[-100px]"></div>
-    <div class="mesh-gradient w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-goyal-300 bottom-[-100px] left-[-50px]"></div>
-    <div class="max-w-6xl mx-auto px-5 md:px-6 relative w-full">
-      <div class="max-w-3xl reveal">
-        <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black leading-[1.08] tracking-tight text-gray-900">
-          Manufacturers of<br>Processed Food<br>
-          <span class="gradient-text">Products.</span>
-        </h1>
-        <p class="mt-6 md:mt-8 text-base md:text-xl text-gray-500 leading-relaxed max-w-2xl">
-          Built on decades of food trade expertise, Goyal Ji delivers consistent quality at scale — from sourcing to processing to Pan-India distribution.
-        </p>
-        <p class="mt-5 text-sm md:text-base font-medium text-gray-700">
-          3D Fryums &middot; Jeera Papad &middot; Soya Wadi &middot; Makkai Poha
-        </p>
-        <p class="mt-3 text-sm md:text-base font-semibold tracking-wide" style="color: #d4a853;">
-          Consistency &middot; Quality &middot; Scale
-        </p>
-        <p class="mt-2 text-xs md:text-sm text-gray-400">Trusted by 500+ distribution partners across India</p>
-        <div class="mt-8 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
-          <a href="products.html" class="inline-flex items-center justify-center px-7 py-3.5 bg-goyal-600 text-white text-sm font-semibold rounded-full hover:bg-goyal-700 transition-all shadow-lg shadow-goyal-600/25 hover:-translate-y-0.5">
-            Explore Products
-            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-          <a href="contact.html" class="inline-flex items-center justify-center px-7 py-3.5 bg-white text-gray-700 text-sm font-semibold rounded-full hover:bg-gray-50 transition-all border border-gray-200 shadow-sm hover:-translate-y-0.5">
-            Contact Us
-          </a>
-        </div>
+  <!-- 1. Hero Section (v10) -->
+  <section id="hero" class="hero">
+    <div class="hero-grid">
+      <p class="hero-deva" data-reveal>गोयल जी</p>
+      <p class="hero-romanised" data-reveal>Goyal Ji</p>
+      <hr class="hero-rule" data-reveal>
+      <h1 class="hero-display" data-reveal>
+        <span>WE MANUFACTURE</span>
+        <span>India's everyday</span>
+        <span class="accent">staple foods.</span>
+      </h1>
+      <p class="hero-skus" data-reveal>3D Fryums<span class="dot">·</span>Jeera Papad<span class="dot">·</span>Soya Wadi<span class="dot">·</span>Makkai Poha</p>
+      <div class="hero-cta" data-reveal>
+        <a href="contact.html" class="btn btn-primary btn-magnetic">
+          Request a Quote
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="products.html" class="btn btn-ghost">Explore Products</a>
       </div>
     </div>
+    <a href="#trust-bar" class="hero-scroll-cue" aria-label="Scroll for the full story">
+      <span>scroll</span>
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    </a>
   </section>
 
   <!-- 2. Trust Bar — Certifications -->
-  <section class="py-10 md:py-14 bg-white">
+  <section id="trust-bar" class="py-10 md:py-14 bg-white">
     <div class="max-w-6xl mx-auto px-5 md:px-6">
       <div class="reveal">
         <p class="text-center text-xs font-semibold text-gray-400 uppercase tracking-widest mb-8">Registered & Certified</p>
@@ -506,15 +533,52 @@
   </div>
 
   <script>
-    // Mobile menu toggle
-    // Entry stagger animation — runs once on load if GSAP is loaded and motion is allowed
-    if (typeof gsap !== 'undefined' && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      gsap.from('nav', { opacity: 0, y: -10, duration: 0.6, ease: 'power2.out' });
-      const heroReveal = document.querySelector('section:first-of-type .reveal');
-      if (heroReveal) {
-        heroReveal.classList.add('visible');
-        gsap.from(heroReveal.children, { opacity: 0, y: 24, stagger: 0.08, duration: 0.7, ease: 'power2.out', delay: 0.1 });
+    // ========== v10 hero choreography ==========
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (typeof gsap !== 'undefined' && !reduced) {
+      // Mark all hero [data-reveal] as visible at their final state — GSAP will
+      // tween FROM a hidden state into this final state via the timeline below.
+      document.querySelectorAll('.hero [data-reveal]').forEach(el => el.classList.add('is-in'));
+
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.from('nav', { opacity: 0, y: -10, duration: 0.6, ease: 'power2.out' }, 0);
+      tl.from('.hero-deva',         { opacity: 0, y: 32, duration: 0.8 }, 0.15);
+      tl.from('.hero-romanised',    { opacity: 0, y: 24, duration: 0.6 }, '-=0.5');
+      tl.to(  '.hero-rule',         { opacity: 1, scaleX: 1, duration: 0.7, ease: 'power2.inOut' }, '-=0.3');
+      tl.to(  '.hero-display span', { opacity: 1, y: 0, duration: 0.8, stagger: 0.09 }, '-=0.3');
+      tl.from('.hero-skus',         { opacity: 0, y: 20, duration: 0.6 }, '-=0.4');
+      tl.from('.hero-cta',          { opacity: 0, y: 20, duration: 0.6 }, '-=0.4');
+      tl.from('.hero-scroll-cue',   { opacity: 0, duration: 0.5 }, '-=0.2');
+
+      // Scroll-cue bob
+      gsap.to('.hero-scroll-cue svg', {
+        y: 6, repeat: -1, yoyo: true, duration: 1.2, ease: 'sine.inOut'
+      });
+      // Fade out scroll-cue once user scrolls past 80px
+      window.addEventListener('scroll', () => {
+        const cue = document.querySelector('.hero-scroll-cue');
+        if (cue) cue.style.opacity = window.scrollY > 80 ? '0' : '1';
+      }, { passive: true });
+
+      // Partner-cities ticker marquee — duplicate track for seamless loop
+      const ticker = document.getElementById('ticker-track');
+      if (ticker) {
+        const totalWidth = ticker.scrollWidth;
+        gsap.to(ticker, {
+          x: -totalWidth / 2,
+          duration: 60,
+          repeat: -1,
+          ease: 'none'
+        });
       }
+    } else {
+      // Reduced motion or GSAP missing — show everything in place immediately
+      document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-in'));
+      const rule = document.querySelector('.hero-rule');
+      if (rule) { rule.style.opacity = '1'; rule.style.transform = 'scaleX(1)'; }
+      document.querySelectorAll('.hero-display span').forEach(span => {
+        span.style.opacity = '1'; span.style.transform = 'translateY(0)';
+      });
     }
 
     document.getElementById('menu-toggle').addEventListener('click', () => {
