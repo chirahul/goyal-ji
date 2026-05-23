@@ -229,13 +229,14 @@
                  data-name="Makkai Poha"
                  data-category-label="Breakfast / Cooking Essentials"
                  data-description="Flattened corn flakes processed for daily breakfast and snack preparation. A nutritious, light ingredient that forms the base of one of India's most popular morning meals — manufactured to maintain freshness and quality."
+                 data-image="assets/makkai-poha.jpeg"
                  data-packs="500g packs × 15 kg box|500g packs × 15 kg bag|Loose 15 kg box|25 kg bag"
                  data-default-pack="500g packs × 15 kg box"
                  data-qty-unit="boxes / bags"
                  data-shelf="6 months"
                  data-suitable="Retail, Wholesale, Institutional">
-          <div class="product-tile__image aspect-[4/3] bg-goyal-50 flex items-center justify-center relative overflow-hidden">
-            <span class="text-xs uppercase tracking-widest text-goyal-300 font-medium">Product photo</span>
+          <div class="product-tile__image aspect-[4/3] flex items-center justify-center relative overflow-hidden" style="background: #F5EFE6;">
+            <img src="assets/makkai-poha.jpeg" alt="Makkai Poha pack — Goyal Ji" class="w-full h-full object-contain p-3" loading="lazy" decoding="async">
             <span class="absolute top-3 left-3 inline-block text-[10px] font-semibold text-goyal-700 bg-white/90 backdrop-blur px-2.5 py-1 rounded-full uppercase tracking-widest">Breakfast</span>
           </div>
           <div class="p-5 md:p-6 flex flex-col flex-1">
@@ -479,8 +480,8 @@
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
 
-      <div id="product-modal-image" class="aspect-[4/3] bg-goyal-50 flex items-center justify-center relative overflow-hidden">
-        <span class="text-xs uppercase tracking-widest text-goyal-300 font-medium">Product photo</span>
+      <div id="product-modal-image" class="aspect-[4/3] flex items-center justify-center relative overflow-hidden" style="background: #F5EFE6;">
+        <!-- contents populated by JS: <img> when product has data-image, otherwise the placeholder span -->
       </div>
 
       <div class="p-6 md:p-8">
@@ -688,8 +689,21 @@
         }
       };
 
+      const imageEl = document.getElementById('product-modal-image');
+
+      const renderImage = (tile) => {
+        const src = tile.dataset.image;
+        const name = tile.dataset.name || '';
+        if (src) {
+          imageEl.innerHTML = `<img src="${src}" alt="${name} pack — Goyal Ji" class="w-full h-full object-contain p-4" decoding="async">`;
+        } else {
+          imageEl.innerHTML = '<span class="text-xs uppercase tracking-widest text-goyal-300 font-medium">Product photo</span>';
+        }
+      };
+
       const openModal = (tile) => {
         currentTile = tile;
+        renderImage(tile);
         catEl.textContent = tile.dataset.categoryLabel || '';
         nameEl.textContent = tile.dataset.name || '';
         descEl.textContent = tile.dataset.description || '';
