@@ -48,17 +48,24 @@
    ===================================================================== */
 
 @layer components {
-  /* ----- Partner-cities ticker (top of every page in Phase 3) ----- */
+  /* ----- Partner-cities ticker (top of every page) ----- */
+  /* Fixed to viewport top, above the floating nav (z-50), so it's
+     persistently visible while scrolling. Pages with a ticker get
+     padding-top: 36px on body via :has() below to push content down. */
   .ticker {
     background: var(--color-paper-2);
     border-bottom: 1px solid var(--color-paper-line);
     overflow: hidden;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 36px;
     display: flex;
     align-items: center;
-    z-index: 49;
+    z-index: 60;
   }
+  body:has(.ticker) { padding-top: 36px; }
   .ticker__viewport {
     width: 100%;
     overflow: hidden;
@@ -117,21 +124,26 @@
     .hero-grid { padding: 0 32px; }
   }
 
-  .hero-deva {
-    font-family: 'Tiro Devanagari Hindi', serif;
-    font-size: clamp(28px, 4vw, 56px);
-    line-height: 1.05;
+  /* Single mixed-script lockup: English "Goyal" + Devanagari "जी". */
+  .hero-lockup {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1;
+    letter-spacing: -0.01em;
     color: var(--color-ink);
     margin: 0;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.18em;
   }
-  .hero-romanised {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 600;
-    font-size: clamp(16px, 1.6vw, 22px);
-    letter-spacing: 0.04em;
-    color: var(--color-ink-soft);
-    margin: 4px 0 0;
-    text-transform: uppercase;
+  .hero-lockup-deva {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1em;
+    color: var(--color-goyal-600);
   }
   .hero-rule {
     border: 0;
@@ -143,12 +155,14 @@
     transform: scaleX(0);
     opacity: 0;
   }
+  /* Softer, more sophisticated display — Cormorant Garamond at weight 500
+     instead of Fraunces 900 black. Reads as editorial, not a tech-headline. */
   .hero-display {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 900;
-    font-size: clamp(48px, 9vw, 112px);
-    line-height: 0.96;
-    letter-spacing: -0.03em;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(44px, 8vw, 104px);
+    line-height: 1;
+    letter-spacing: -0.015em;
     color: var(--color-ink);
     margin: 0;
   }
@@ -157,7 +171,11 @@
     opacity: 0;
     transform: translateY(24px);
   }
-  .hero-display .accent { color: var(--color-goyal-500); }
+  .hero-display .accent {
+    color: var(--color-goyal-600);
+    font-style: italic;
+    font-weight: 500;
+  }
 
   .hero-skus {
     margin-top: 32px;
@@ -344,7 +362,7 @@
   .timeline-line,
   .process-line {
     position: absolute;
-    left: 27px;
+    left: 31px;          /* centers the 2px line on the 64px-wide badge whose centre sits at x=32 */
     top: 0;
     bottom: 0;
     width: 2px;
