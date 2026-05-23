@@ -135,58 +135,57 @@
         </h2>
       </div>
 
-      <div class="mt-10 md:mt-14 max-w-2xl">
-        <div class="relative pl-24 md:pl-32">
-          <div class="timeline-line"></div>
+      <div class="mt-10 md:mt-14 max-w-2xl relative">
+        <!-- Vertical connecting line, drawn behind the badge column.
+             32px = half of badge width (w-16 = 64px), aligned to badge centre. -->
+        <div class="absolute top-8 bottom-8 w-px bg-goyal-200" style="left: 32px;"></div>
 
-          <!-- Phase 1 -->
-          <div class="reveal relative pb-12 md:pb-16">
-            <div class="absolute left-[-96px] md:left-[-128px] w-16 h-16 bg-goyal-50 border-2 border-goyal-200 rounded-xl flex items-center justify-center">
-              <span class="text-lg font-bold text-goyal-700">01</span>
-            </div>
-            <div class="pt-1">
-              <span class="text-xs font-semibold uppercase tracking-widest" style="color: #d4a853;">Origins</span>
-              <h3 class="mt-2 text-lg md:text-xl font-bold text-gray-900">Red Chilli Trading</h3>
-              <p class="mt-3 text-sm md:text-base text-gray-500 leading-relaxed">The business traces its origins to the trading of red chillies — establishing early roots in India's spice and food commodity markets.</p>
-            </div>
+        <!-- Phase 1 -->
+        <div class="reveal flex items-start gap-6 md:gap-10 pb-12 md:pb-16">
+          <div class="relative z-10 w-16 h-16 bg-goyal-50 border-2 border-goyal-200 rounded-xl flex items-center justify-center flex-shrink-0">
+            <span class="text-lg font-bold text-goyal-700">01</span>
           </div>
-
-          <!-- Phase 2 -->
-          <div class="reveal relative pb-12 md:pb-16" style="transition-delay:0.06s">
-            <div class="absolute left-[-96px] md:left-[-128px] w-16 h-16 bg-goyal-100 border-2 border-goyal-300 rounded-xl flex items-center justify-center">
-              <span class="text-lg font-bold text-goyal-700">02</span>
-            </div>
-            <div class="pt-1">
-              <span class="text-xs font-semibold uppercase tracking-widest" style="color: #d4a853;">Infrastructure</span>
-              <h3 class="mt-2 text-lg md:text-xl font-bold text-gray-900">Cold Storage & Warehousing</h3>
-              <p class="mt-3 text-sm md:text-base text-gray-500 leading-relaxed">Expansion into cold storage and warehousing operations — building the infrastructure backbone needed for food processing at scale.</p>
-            </div>
+          <div class="flex-1 min-w-0 pt-1">
+            <span class="text-xs font-semibold uppercase tracking-widest" style="color: #d4a853;">Origins</span>
+            <h3 class="mt-2 text-lg md:text-xl font-bold text-gray-900">Red Chilli Trading</h3>
+            <p class="mt-3 text-sm md:text-base text-gray-500 leading-relaxed">The business traces its origins to the trading of red chillies — establishing early roots in India's spice and food commodity markets.</p>
           </div>
+        </div>
 
-          <!-- Phase 3 -->
-          <div class="reveal relative pb-12 md:pb-16" style="transition-delay:0.12s">
-            <div class="absolute left-[-96px] md:left-[-128px] w-16 h-16 bg-goyal-200 border-2 border-goyal-400 rounded-xl flex items-center justify-center">
-              <span class="text-lg font-bold text-goyal-700">03</span>
-            </div>
-            <div class="pt-1">
-              <span class="text-xs font-semibold uppercase tracking-widest" style="color: #d4a853;">Processing</span>
-              <h3 class="mt-2 text-lg md:text-xl font-bold text-gray-900">Spice Processing</h3>
-              <p class="mt-3 text-sm md:text-base text-gray-500 leading-relaxed">Establishment of in-house spice processing capabilities — deepening expertise in food quality control and batch manufacturing.</p>
-            </div>
+        <!-- Phase 2 -->
+        <div class="reveal flex items-start gap-6 md:gap-10 pb-12 md:pb-16" style="transition-delay:0.06s">
+          <div class="relative z-10 w-16 h-16 bg-goyal-100 border-2 border-goyal-300 rounded-xl flex items-center justify-center flex-shrink-0">
+            <span class="text-lg font-bold text-goyal-700">02</span>
           </div>
-
-          <!-- Phase 4 -->
-          <div class="reveal relative" style="transition-delay:0.18s">
-            <div class="absolute left-[-96px] md:left-[-128px] w-16 h-16 bg-goyal-600 border-2 border-goyal-700 rounded-xl flex items-center justify-center">
-              <span class="text-lg font-bold text-white">04</span>
-            </div>
-            <div class="pt-1">
-              <span class="text-xs font-semibold uppercase tracking-widest" style="color: #d4a853;">Today</span>
-              <h3 class="mt-2 text-lg md:text-xl font-bold text-gray-900">Processed Food Manufacturing</h3>
-              <p class="mt-3 text-sm md:text-base text-gray-500 leading-relaxed">Goyal Ji represents the continuation of this progression — an integrated approach to sourcing, processing, and distribution of processed food products across India.</p>
-            </div>
+          <div class="flex-1 min-w-0 pt-1">
+            <span class="text-xs font-semibold uppercase tracking-widest" style="color: #d4a853;">Infrastructure</span>
+            <h3 class="mt-2 text-lg md:text-xl font-bold text-gray-900">Cold Storage &amp; Warehousing</h3>
+            <p class="mt-3 text-sm md:text-base text-gray-500 leading-relaxed">Expansion into cold storage and warehousing operations — building the infrastructure backbone needed for food processing at scale.</p>
           </div>
+        </div>
 
+        <!-- Phase 3 -->
+        <div class="reveal flex items-start gap-6 md:gap-10 pb-12 md:pb-16" style="transition-delay:0.12s">
+          <div class="relative z-10 w-16 h-16 bg-goyal-200 border-2 border-goyal-400 rounded-xl flex items-center justify-center flex-shrink-0">
+            <span class="text-lg font-bold text-goyal-700">03</span>
+          </div>
+          <div class="flex-1 min-w-0 pt-1">
+            <span class="text-xs font-semibold uppercase tracking-widest" style="color: #d4a853;">Processing</span>
+            <h3 class="mt-2 text-lg md:text-xl font-bold text-gray-900">Spice Processing</h3>
+            <p class="mt-3 text-sm md:text-base text-gray-500 leading-relaxed">Establishment of in-house spice processing capabilities — deepening expertise in food quality control and batch manufacturing.</p>
+          </div>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="reveal flex items-start gap-6 md:gap-10" style="transition-delay:0.18s">
+          <div class="relative z-10 w-16 h-16 bg-goyal-600 border-2 border-goyal-700 rounded-xl flex items-center justify-center flex-shrink-0">
+            <span class="text-lg font-bold text-white">04</span>
+          </div>
+          <div class="flex-1 min-w-0 pt-1">
+            <span class="text-xs font-semibold uppercase tracking-widest" style="color: #d4a853;">Today</span>
+            <h3 class="mt-2 text-lg md:text-xl font-bold text-gray-900">Processed Food Manufacturing</h3>
+            <p class="mt-3 text-sm md:text-base text-gray-500 leading-relaxed">Goyal Ji represents the continuation of this progression — an integrated approach to sourcing, processing, and distribution of processed food products across India.</p>
+          </div>
         </div>
       </div>
     </div>

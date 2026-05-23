@@ -313,17 +313,6 @@
   }
   .wa-pulse { animation: wa-pulse 2s 3; }
 
-  .timeline-line,
-  .process-line {
-    position: absolute;
-    left: 31px;          /* centers the 2px line on the 64px-wide badge whose centre sits at x=32 */
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(180deg, #fad0c3 0%, #c7421a 50%, #a33515 100%);
-    border-radius: 1px;
-  }
-
   .prose-legal h2 {
     font-size: 1.25rem;
     font-weight: 700;
