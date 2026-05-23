@@ -48,55 +48,6 @@
    ===================================================================== */
 
 @layer components {
-  /* ----- Partner-cities ticker (top of every page) ----- */
-  /* Fixed to viewport top, above the floating nav (z-50), so it's
-     persistently visible while scrolling. Pages with a ticker get
-     padding-top: 36px on body via :has() below to push content down. */
-  .ticker {
-    background: var(--color-paper-2);
-    border-bottom: 1px solid var(--color-paper-line);
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    z-index: 60;
-  }
-  body:has(.ticker) { padding-top: 36px; }
-  .ticker__viewport {
-    width: 100%;
-    overflow: hidden;
-    mask-image: linear-gradient(90deg, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%);
-    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%);
-  }
-  .ticker__track {
-    display: flex;
-    gap: 0;
-    white-space: nowrap;
-    will-change: transform;
-  }
-  .ticker__item {
-    flex-shrink: 0;
-    padding: 0 32px;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    color: var(--color-ink-mute);
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 32px;
-  }
-  .ticker__item::after {
-    content: '·';
-    color: var(--color-gold);
-    font-size: 18px;
-    line-height: 0;
-  }
-
   /* ----- Hero ----- */
   .hero {
     position: relative;
@@ -124,9 +75,11 @@
     .hero-grid { padding: 0 32px; }
   }
 
-  /* Single mixed-script lockup: English "Goyal" + Devanagari "जी". */
+  /* Single mixed-script lockup: English "Goyal" + Devanagari "जी".
+     Playfair Display italic at display size — high-contrast editorial,
+     recognisably refined without being austere. */
   .hero-lockup {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-weight: 500;
     font-style: italic;
     font-size: clamp(40px, 6vw, 80px);
@@ -155,13 +108,14 @@
     transform: scaleX(0);
     opacity: 0;
   }
-  /* Softer, more sophisticated display — Cormorant Garamond at weight 500
-     instead of Fraunces 900 black. Reads as editorial, not a tech-headline. */
+  /* Hero display in Playfair Display — high-contrast Didone-influenced
+     serif, the classic editorial typeface. Weight 600 for body lines,
+     italic 700 for the accent. */
   .hero-display {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 500;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
     font-size: clamp(44px, 8vw, 104px);
-    line-height: 1;
+    line-height: 1.02;
     letter-spacing: -0.015em;
     color: var(--color-ink);
     margin: 0;
@@ -174,7 +128,7 @@
   .hero-display .accent {
     color: var(--color-goyal-600);
     font-style: italic;
-    font-weight: 500;
+    font-weight: 700;
   }
 
   .hero-skus {
