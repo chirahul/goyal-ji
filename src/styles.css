@@ -74,6 +74,96 @@
   @media (min-width: 768px) {
     .hero-grid { padding: 0 32px; }
   }
+  @media (min-width: 1024px) {
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px;
+      align-items: center;
+    }
+  }
+
+  /* ----- Hero carousel (right column on lg+, below text on mobile) ----- */
+  .hero-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin: 56px auto 0;
+  }
+  @media (min-width: 1024px) {
+    .hero-carousel { margin: 0; max-width: none; }
+  }
+  .hero-carousel-track {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--color-paper-2);
+    box-shadow: 0 24px 60px -20px rgba(20, 17, 15, 0.18);
+  }
+  @media (min-width: 1024px) {
+    .hero-carousel-track { aspect-ratio: 1 / 1; }
+  }
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+  .hero-slide.is-active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+  .hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 32px;
+    display: block;
+  }
+  .hero-slide figcaption {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(20, 17, 15, 0.06);
+  }
+  .hero-carousel-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .hero-carousel-dots button {
+    width: 24px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--color-paper-line);
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.3s ease, width 0.3s ease;
+  }
+  .hero-carousel-dots button:hover { background: var(--color-goyal-300); }
+  .hero-carousel-dots button[aria-selected="true"] {
+    background: var(--color-goyal-600);
+    width: 36px;
+  }
 
   /* Single mixed-script lockup: English "Goyal" + Devanagari "जी".
      Playfair Display italic at display size — high-contrast editorial,
@@ -242,6 +332,7 @@
     .hero-rule { transform: none !important; opacity: 1 !important; }
     .hero-display span { opacity: 1 !important; transform: none !important; }
     .hero-scroll-cue svg { animation: none !important; }
+    .hero-slide { transition: none !important; transform: none !important; }
   }
 }
 

@@ -112,20 +112,44 @@
   <!-- 1. Hero Section (v10) -->
   <section id="hero" class="hero">
     <div class="hero-grid">
-      <p class="hero-lockup" data-reveal>Goyal<span class="hero-lockup-deva">जी</span></p>
-      <hr class="hero-rule" data-reveal>
-      <h1 class="hero-display" data-reveal>
-        <span>WE MANUFACTURE</span>
-        <span>India's everyday</span>
-        <span class="accent">staple foods.</span>
-      </h1>
-      <p class="hero-skus" data-reveal>3D Fryums<span class="dot">·</span>Jeera Papad<span class="dot">·</span>Soya Wadi<span class="dot">·</span>Makkai Poha</p>
-      <div class="hero-cta" data-reveal>
-        <a href="contact.html" class="btn btn-primary btn-magnetic">
-          Request a Quote
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </a>
-        <a href="products.html" class="btn btn-ghost">Explore Products</a>
+      <div class="hero-content">
+        <p class="hero-lockup" data-reveal>Goyal<span class="hero-lockup-deva">जी</span></p>
+        <hr class="hero-rule" data-reveal>
+        <h1 class="hero-display" data-reveal>
+          <span>WE MANUFACTURE</span>
+          <span>India's everyday</span>
+          <span class="accent">staple foods.</span>
+        </h1>
+        <p class="hero-skus" data-reveal>3D Fryums<span class="dot">·</span>Jeera Papad<span class="dot">·</span>Soya Wadi<span class="dot">·</span>Makkai Poha</p>
+        <div class="hero-cta" data-reveal>
+          <a href="contact.html" class="btn btn-primary btn-magnetic">
+            Request a Quote
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="products.html" class="btn btn-ghost">Explore Products</a>
+        </div>
+      </div>
+
+      <div class="hero-carousel" data-reveal aria-roledescription="carousel" aria-label="Featured products">
+        <div class="hero-carousel-track">
+          <figure class="hero-slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 3">
+            <img src="assets/3d-fryums.jpg" alt="3D Fryums (Papad) — Goyal Ji" loading="eager" fetchpriority="high" decoding="async">
+            <figcaption>3D Fryums · Papad</figcaption>
+          </figure>
+          <figure class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+            <img src="assets/makkai-poha.jpeg" alt="Makkai Poha — Goyal Ji" loading="lazy" decoding="async">
+            <figcaption>Makkai Poha · Breakfast</figcaption>
+          </figure>
+          <figure class="hero-slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+            <img src="assets/jeera-papad.jpg" alt="Jeera Papad — Goyal Ji" loading="lazy" decoding="async">
+            <figcaption>Jeera Papad · Papad</figcaption>
+          </figure>
+        </div>
+        <div class="hero-carousel-dots" role="tablist" aria-label="Select slide">
+          <button type="button" role="tab" aria-selected="true" aria-label="Show 3D Fryums"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Show Makkai Poha"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Show Jeera Papad"></button>
+        </div>
       </div>
     </div>
     <a href="#trust-bar" class="hero-scroll-cue" aria-label="Scroll for the full story">
@@ -547,6 +571,40 @@
         span.style.opacity = '1'; span.style.transform = 'translateY(0)';
       });
     }
+
+    // ========== Hero carousel ==========
+    (() => {
+      const carousel = document.querySelector('.hero-carousel');
+      if (!carousel) return;
+      const slides = Array.from(carousel.querySelectorAll('.hero-slide'));
+      const dots = Array.from(carousel.querySelectorAll('.hero-carousel-dots button'));
+      if (slides.length < 2) return;
+
+      let current = 0;
+      let timer = null;
+      const INTERVAL = 5000;
+
+      const go = (idx) => {
+        current = (idx + slides.length) % slides.length;
+        slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
+        dots.forEach((d, i) => d.setAttribute('aria-selected', i === current ? 'true' : 'false'));
+      };
+      const next = () => go(current + 1);
+      const start = () => {
+        if (reduced) return;
+        stop();
+        timer = setInterval(next, INTERVAL);
+      };
+      const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+
+      dots.forEach((d, i) => d.addEventListener('click', () => { go(i); start(); }));
+      carousel.addEventListener('mouseenter', stop);
+      carousel.addEventListener('mouseleave', start);
+      document.addEventListener('visibilitychange', () => {
+        document.hidden ? stop() : start();
+      });
+      start();
+    })();
 
     document.getElementById('menu-toggle').addEventListener('click', () => {
       document.getElementById('mobile-menu').classList.toggle('hidden');
