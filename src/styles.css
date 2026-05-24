@@ -75,12 +75,22 @@
     .hero-grid { padding: 0 32px; }
   }
   @media (min-width: 1024px) {
+    /* Right-bleed layout: text anchored to site container left edge,
+       carousel extends from the gap to the right edge of the viewport. */
     .hero-grid {
+      max-width: none;
+      margin: 0;
+      padding: 0;
       display: grid;
-      grid-template-columns: 1fr 1.05fr;
-      gap: 56px;
+      grid-template-columns:
+        minmax(32px, calc((100vw - 1280px) / 2 + 32px))   /* leading gutter aligns content with site container */
+        minmax(0, 620px)                                   /* text column — fits clamped display */
+        56px                                               /* gap */
+        1fr;                                               /* carousel fills the rest */
       align-items: center;
     }
+    .hero-content { grid-column: 2; }
+    .hero-carousel { grid-column: 4; }
   }
 
   /* ----- Hero carousel (right column on lg+, below text on mobile) ----- */
@@ -110,7 +120,14 @@
     .hero-carousel-track { border-radius: 24px; }
   }
   @media (min-width: 1024px) {
-    .hero-carousel-track { aspect-ratio: 5 / 6; }
+    /* Bigger, right-bleed: fills the column to the viewport edge, sharp right corners. */
+    .hero-carousel-track {
+      aspect-ratio: auto;
+      height: 64vh;
+      min-height: 480px;
+      max-height: 680px;
+      border-radius: 28px 0 0 28px;
+    }
   }
   .hero-slide {
     position: absolute;
@@ -234,8 +251,8 @@
   .hero-display {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 600;
-    font-size: clamp(44px, 8vw, 104px);
-    line-height: 1.02;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1.05;
     letter-spacing: -0.015em;
     color: var(--color-ink);
     margin: 0;
