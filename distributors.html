@@ -50,6 +50,53 @@
     }
   }
   </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://goyalji.in/"},
+      {"@type": "ListItem", "position": 2, "name": "Become a Distributor", "item": "https://goyalji.in/distributors.html"}
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQPage (distributor FAQs) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What's the minimum order quantity?",
+        "acceptedAnswer": {"@type": "Answer", "text": "MOQ depends on your channel and pack format. We size it on the discovery call so it makes sense for your operation \u2014 retailers, distributors, and HORECA buyers don't get the same number."}
+      },
+      {
+        "@type": "Question",
+        "name": "Which products can I distribute?",
+        "acceptedAnswer": {"@type": "Answer", "text": "All four SKUs in our current range \u2014 3D Fryums, Jeera Papad, Soya Wadi, and Makkai Poha. You can start with one and add more as the channel matures."}
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer territory exclusivity?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Discussed case-by-case on the call. It depends on your geography, channel depth, and committed monthly volume."}
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly can I expect first dispatch?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Typically within a few working days of PO confirmation and payment clearance, depending on pack format and quantity. The exact lead time is confirmed in your quotation."}
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a GST registration to apply?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 a valid GSTIN is required for distributor applications."}
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-paper text-ink font-sans antialiased overflow-x-hidden" data-page="distributors">
 

@@ -71,7 +71,7 @@
   }
   </script>
 
-  <!-- Structured data: Product list -->
+  <!-- Structured data: Product list (rich) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -81,35 +81,63 @@
       {
         "@type": "Product",
         "position": 1,
+        "sku": "GJ-3D-FRYUMS",
         "name": "3D Fryums (Papad)",
-        "description": "Ready-to-fry three-dimensional shaped fryums. Bulk packaging: 15 kg box, 20 kg bag, 25 kg bag.",
+        "description": "Ready-to-fry three-dimensional shaped fryums. Bulk packaging: 15 kg box, 20 kg bag, 25 kg bag. 6-month shelf life.",
+        "image": "https://goyalji.in/assets/3d-fryums.webp",
         "brand": {"@type": "Brand", "name": "Goyal Ji"},
-        "category": "Snacks / Papad"
+        "category": "Snacks / Papad",
+        "manufacturer": {"@type": "Organization", "name": "JP Industries", "url": "https://goyalji.in/"},
+        "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2027-12-31", "url": "https://goyalji.in/products.html#product-fryums", "businessFunction": "https://schema.org/Sell", "eligibleCustomerType": "https://schema.org/Business"}
       },
       {
         "@type": "Product",
         "position": 2,
+        "sku": "GJ-MAKKAI-POHA",
         "name": "Makkai Poha",
-        "description": "Flattened corn flakes for daily breakfast preparation. Bulk packaging: 500g packs in 15 kg box or bag, loose in 15 kg box, 25 kg bag.",
+        "description": "Flattened corn flakes for daily breakfast preparation. Packaging: 500g retail packs in 15 kg box or bag, loose in 15 kg box, 25 kg bag.",
+        "image": "https://goyalji.in/assets/makkai-poha.webp",
         "brand": {"@type": "Brand", "name": "Goyal Ji"},
-        "category": "Breakfast"
+        "category": "Breakfast / Cooking Essentials",
+        "manufacturer": {"@type": "Organization", "name": "JP Industries", "url": "https://goyalji.in/"},
+        "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "url": "https://goyalji.in/products.html#product-poha", "businessFunction": "https://schema.org/Sell", "eligibleCustomerType": "https://schema.org/Business"}
       },
       {
         "@type": "Product",
         "position": 3,
+        "sku": "GJ-JEERA-PAPAD",
         "name": "Jeera Papad",
-        "description": "Traditional cumin-flavoured papad, processed under controlled conditions for uniform quality.",
+        "description": "Traditional cumin-flavoured papad, processed under controlled conditions for uniform quality, crispness, and flavour.",
+        "image": "https://goyalji.in/assets/jeera.webp",
         "brand": {"@type": "Brand", "name": "Goyal Ji"},
-        "category": "Papad"
+        "category": "Papad",
+        "manufacturer": {"@type": "Organization", "name": "JP Industries", "url": "https://goyalji.in/"},
+        "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "url": "https://goyalji.in/products.html#product-papad", "businessFunction": "https://schema.org/Sell", "eligibleCustomerType": "https://schema.org/Business"}
       },
       {
         "@type": "Product",
         "position": 4,
+        "sku": "GJ-SOYA-WADI",
         "name": "Soya Wadi",
-        "description": "High-protein soya chunks for everyday Indian cooking, with consistent size and texture.",
+        "description": "High-protein soya chunks for everyday Indian cooking, with consistent size, texture, and nutritional value.",
+        "image": "https://goyalji.in/assets/soya.webp",
         "brand": {"@type": "Brand", "name": "Goyal Ji"},
-        "category": "Cooking Essentials"
+        "category": "Protein / Cooking Essentials",
+        "manufacturer": {"@type": "Organization", "name": "JP Industries", "url": "https://goyalji.in/"},
+        "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "url": "https://goyalji.in/products.html#product-soya", "businessFunction": "https://schema.org/Sell", "eligibleCustomerType": "https://schema.org/Business"}
       }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://goyalji.in/"},
+      {"@type": "ListItem", "position": 2, "name": "Products", "item": "https://goyalji.in/products.html"}
     ]
   }
   </script>
@@ -185,14 +213,14 @@
                  data-name="3D Fryums (Papad)"
                  data-category-label="Snacks / Papad"
                  data-description="Ready-to-fry three-dimensional shaped fryums, manufactured for consistent texture, taste, and extended shelf life. A popular snack item across India, processed under controlled conditions to maintain uniformity in every batch."
-                 data-image="assets/3d-fryums.jpg"
+                 data-image="assets/3d-fryums.webp"
                  data-packs="15 kg box|20 kg bag|25 kg bag"
                  data-default-pack="15 kg box"
                  data-qty-unit="units"
                  data-shelf="6 months"
                  data-suitable="Wholesale, Distribution, Institutional">
           <div class="product-tile__image aspect-[4/3] flex items-center justify-center relative overflow-hidden">
-            <img src="assets/3d-fryums.jpg" alt="3D Fryums pack — Goyal Ji" class="w-full h-full object-contain p-3" loading="lazy" decoding="async">
+            <img src="assets/3d-fryums.webp" alt="3D Fryums pack — Goyal Ji" class="w-full h-full object-contain p-3" loading="lazy" decoding="async">
           </div>
           <div class="p-5 md:p-6 flex flex-col flex-1">
             <h3 class="text-lg md:text-xl font-bold text-gray-900">3D Fryums (Papad)</h3>
@@ -222,14 +250,14 @@
                  data-name="Makkai Poha"
                  data-category-label="Breakfast / Cooking Essentials"
                  data-description="Flattened corn flakes processed for daily breakfast and snack preparation. A nutritious, light ingredient that forms the base of one of India's most popular morning meals — manufactured to maintain freshness and quality."
-                 data-image="assets/makkai-poha.jpeg"
+                 data-image="assets/makkai-poha.webp"
                  data-packs="500g packs × 15 kg box|500g packs × 15 kg bag|Loose 15 kg box|25 kg bag"
                  data-default-pack="500g packs × 15 kg box"
                  data-qty-unit="boxes / bags"
                  data-shelf="6 months"
                  data-suitable="Retail, Wholesale, Institutional">
           <div class="product-tile__image aspect-[4/3] flex items-center justify-center relative overflow-hidden">
-            <img src="assets/makkai-poha.jpeg" alt="Makkai Poha pack — Goyal Ji" class="w-full h-full object-contain p-3" loading="lazy" decoding="async">
+            <img src="assets/makkai-poha.webp" alt="Makkai Poha pack — Goyal Ji" class="w-full h-full object-contain p-3" loading="lazy" decoding="async">
           </div>
           <div class="p-5 md:p-6 flex flex-col flex-1">
             <h3 class="text-lg md:text-xl font-bold text-gray-900">Makkai Poha</h3>
@@ -259,14 +287,14 @@
                  data-name="Jeera Papad"
                  data-category-label="Papad"
                  data-description="Traditional cumin-flavoured papad, a staple accompaniment in Indian meals. Manufactured under controlled conditions to ensure uniform quality, crispness, and flavour consistency across every production batch."
-                 data-image="assets/jeera.jpeg"
+                 data-image="assets/jeera.webp"
                  data-packs="Bulk — on request"
                  data-default-pack="Bulk — on request"
                  data-qty-unit="kg"
                  data-shelf="8 months"
                  data-suitable="Retail, Wholesale, Institutional">
           <div class="product-tile__image aspect-[4/3] flex items-center justify-center relative overflow-hidden">
-            <img src="assets/jeera.jpeg" alt="Jeera Papad — Goyal Ji" class="w-full h-full object-contain p-3" loading="lazy" decoding="async">
+            <img src="assets/jeera.webp" alt="Jeera Papad — Goyal Ji" class="w-full h-full object-contain p-3" loading="lazy" decoding="async">
           </div>
           <div class="p-5 md:p-6 flex flex-col flex-1">
             <h3 class="text-lg md:text-xl font-bold text-gray-900">Jeera Papad</h3>
@@ -296,14 +324,14 @@
                  data-name="Soya Wadi"
                  data-category-label="Protein / Cooking Essentials"
                  data-description="High-protein soya chunks manufactured for everyday Indian cooking. A versatile ingredient used in curries, pulao, and snacks — processed to deliver consistent size, texture, and nutritional value in every batch."
-                 data-image="assets/soya.jpeg"
+                 data-image="assets/soya.webp"
                  data-packs="Bulk — on request"
                  data-default-pack="Bulk — on request"
                  data-qty-unit="kg"
                  data-shelf="12 months"
                  data-suitable="Retail, Wholesale, Institutional">
           <div class="product-tile__image aspect-[4/3] flex items-center justify-center relative overflow-hidden">
-            <img src="assets/soya.jpeg" alt="Soya Wadi — Goyal Ji" class="w-full h-full object-contain p-3" loading="lazy" decoding="async">
+            <img src="assets/soya.webp" alt="Soya Wadi — Goyal Ji" class="w-full h-full object-contain p-3" loading="lazy" decoding="async">
           </div>
           <div class="p-5 md:p-6 flex flex-col flex-1">
             <h3 class="text-lg md:text-xl font-bold text-gray-900">Soya Wadi</h3>
