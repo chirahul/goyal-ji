@@ -215,25 +215,30 @@
   /* Single mixed-script lockup: English "Goyal" + Devanagari "जी".
      Playfair Display italic at display size — high-contrast editorial,
      recognisably refined without being austere. Brand-first hierarchy:
-     this should READ first in the hero, larger than the descriptor. */
+     this should READ first in the hero, larger than the descriptor.
+     Devanagari matra needs vertical room — bump line-height + padding
+     so the top stroke isn't clipped by the hero's overflow:hidden. */
   .hero-lockup {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 600;
     font-style: italic;
     font-size: clamp(64px, 9vw, 120px);
-    line-height: 1;
+    line-height: 1.15;
     letter-spacing: -0.02em;
     color: var(--color-ink);
     margin: 0;
+    padding-top: 0.12em;
     display: inline-flex;
     align-items: baseline;
-    gap: 0.18em;
+    gap: 0.16em;
+    overflow: visible;
   }
   .hero-lockup-deva {
     font-family: 'Tiro Devanagari Hindi', serif;
     font-weight: 400;
     font-style: normal;
     font-size: 1em;
+    line-height: 1.15;
     color: var(--color-goyal-600);
   }
   .hero-rule {
