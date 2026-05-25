@@ -220,12 +220,12 @@
      so the top stroke isn't clipped by the hero's overflow:hidden. */
   .hero-lockup {
     font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 600;
+    font-weight: 800;
     font-style: italic;
     font-size: clamp(64px, 9vw, 120px);
     line-height: 1.15;
     letter-spacing: -0.02em;
-    color: var(--color-ink);
+    color: #000;
     margin: 0;
     padding-top: 0.12em;
     display: inline-flex;
