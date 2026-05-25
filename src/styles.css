@@ -219,13 +219,16 @@
      Devanagari matra needs vertical room — bump line-height + padding
      so the top stroke isn't clipped by the hero's overflow:hidden. */
   .hero-lockup {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Playfair Display', 'Times New Roman', Georgia, serif;
     font-weight: 900;
     font-style: normal;
     font-size: clamp(64px, 9vw, 120px);
     line-height: 1.15;
     letter-spacing: -0.025em;
     color: #000;
+    /* Belt and braces — if the heavier Playfair weight hasn't loaded, the
+       text-stroke overlay keeps the perceived weight solid-black. */
+    -webkit-text-stroke: 0.6px #000;
     margin: 0;
     padding-top: 0.12em;
     display: inline-flex;

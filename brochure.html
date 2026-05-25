@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Goyal Ji — Company &amp; Capability Brochure</title>
+  <title>Goyal Ji — Product &amp; Capability Brochure</title>
   <meta name="robots" content="index,follow">
   <link rel="icon" type="image/png" href="/assets/goyal-ji.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,10 +11,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter+Tight:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&family=JetBrains+Mono:wght@500&display=swap">
 
   <style>
-    /* ===========================
-       Brochure print stylesheet
-       6 × A4 pages, Goyal Ji palette
-       =========================== */
     :root {
       --ink: #14110F;
       --ink-soft: #2A2520;
@@ -23,15 +19,11 @@
       --paper-2: #EFE7DA;
       --paper-line: #E0D5C2;
       --orange: #B83A0F;
-      --orange-deep: #8E2C09;
       --orange-light: #FCEFE7;
-      --orange-300: #ED8E63;
       --gold: #B8893D;
-      --dark: #14110F;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html, body {
       font-family: 'Inter Tight', -apple-system, sans-serif;
       color: var(--ink);
@@ -41,15 +33,12 @@
       line-height: 1.55;
     }
 
-    @page {
-      size: A4;
-      margin: 0;
-    }
+    @page { size: A4; margin: 0; }
 
     .page {
       width: 210mm;
       height: 297mm;
-      padding: 18mm 16mm;
+      padding: 20mm 18mm;
       position: relative;
       background: var(--paper);
       box-sizing: border-box;
@@ -58,38 +47,118 @@
     }
     .page:last-child { page-break-after: auto; }
 
-    /* On screen: spacing + shadow between pages */
     body { padding: 16px 0; }
-    .page {
-      margin: 0 auto 16px;
-      box-shadow: 0 12px 40px rgba(20, 17, 15, 0.1);
-    }
+    .page { margin: 0 auto 16px; box-shadow: 0 12px 40px rgba(20, 17, 15, 0.1); }
     @media print {
       body { padding: 0; background: white; }
       .page { margin: 0; box-shadow: none; }
     }
 
-    /* ----- Type system ----- */
     h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; color: var(--ink); }
-    .lede { color: var(--ink-mute); font-size: 10pt; line-height: 1.65; }
     .mono { font-family: 'JetBrains Mono', monospace; }
     .eyebrow {
       font-family: 'Inter Tight', sans-serif;
       font-size: 8pt;
       font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--orange);
     }
-    .eyebrow.gold { color: var(--gold); }
     .eyebrow.muted { color: var(--ink-mute); }
 
-    /* ----- Page header (pages 2-6) ----- */
+    /* ============ Cover ============ */
+    .cover-logo { height: 14mm; margin-bottom: 50mm; }
+    .cover .lockup {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 64pt;
+      line-height: 1;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+    }
+    .cover .lockup .deva {
+      font-family: 'Tiro Devanagari Hindi', serif;
+      font-weight: 400;
+      color: var(--orange);
+      font-size: 1em;
+      margin-left: 0.1em;
+    }
+    .cover .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-style: italic;
+      font-size: 18pt;
+      color: var(--ink-soft);
+      margin-top: 4mm;
+    }
+    .cover .rule {
+      width: 18mm;
+      height: 1.2pt;
+      background: var(--orange);
+      margin: 10mm 0 8mm;
+      border: 0;
+    }
+    .cover .intro {
+      max-width: 115mm;
+      font-size: 10.5pt;
+      color: var(--ink-mute);
+      line-height: 1.7;
+    }
+    .cover .intro strong { color: var(--ink); font-weight: 600; }
+    .cover .highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 5mm;
+      margin-top: 16mm;
+    }
+    .cover .highlight {
+      background: #fff;
+      border: 0.5pt solid var(--paper-line);
+      border-radius: 6pt;
+      padding: 6mm 5mm;
+    }
+    .cover .highlight .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7pt;
+      font-weight: 600;
+      color: var(--orange);
+      letter-spacing: 0.16em;
+    }
+    .cover .highlight h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 12pt;
+      color: var(--ink);
+      margin-top: 3mm;
+      line-height: 1.2;
+    }
+    .cover .highlight p {
+      font-size: 8pt;
+      color: var(--ink-mute);
+      margin-top: 2mm;
+      line-height: 1.5;
+    }
+    .cover .footer-line {
+      position: absolute;
+      bottom: 20mm;
+      left: 18mm;
+      right: 18mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8.5pt;
+      color: var(--ink-mute);
+      padding-top: 5mm;
+      border-top: 0.5pt solid var(--paper-line);
+    }
+    .cover .footer-line strong { color: var(--ink); font-weight: 600; }
+
+    /* ============ Inner page header / footer ============ */
     .page-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 8mm;
+      padding-bottom: 6mm;
       border-bottom: 0.5pt solid var(--paper-line);
       margin-bottom: 12mm;
     }
@@ -105,7 +174,6 @@
     }
     .page-header-left::before {
       content: '';
-      display: inline-block;
       width: 6px;
       height: 6px;
       background: var(--orange);
@@ -118,13 +186,11 @@
       font-weight: 600;
       color: var(--orange);
     }
-
-    /* ----- Page footer ----- */
     .page-footer {
       position: absolute;
       bottom: 14mm;
-      left: 16mm;
-      right: 16mm;
+      left: 18mm;
+      right: 18mm;
       display: flex;
       justify-content: space-between;
       font-size: 7.5pt;
@@ -133,295 +199,39 @@
       border-top: 0.5pt solid var(--paper-line);
     }
 
-    /* ===========================
-       Page 1 — Cover
-       =========================== */
-    .cover { padding: 22mm 18mm; }
-    .cover-logo { height: 14mm; margin-bottom: 40mm; }
-    .cover-eyebrow {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 8pt;
-      letter-spacing: 0.22em;
-      font-weight: 600;
-      color: var(--ink);
-      text-transform: uppercase;
-      margin-bottom: 4mm;
-    }
-    .cover h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 700;
-      font-size: 56pt;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-    }
-    .cover h1 .deva {
-      font-family: 'Tiro Devanagari Hindi', serif;
-      font-weight: 400;
-      color: var(--orange);
-      font-size: 1em;
-      margin-left: 0.1em;
-    }
-    .cover .subtitle {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-weight: 500;
-      font-size: 18pt;
-      color: var(--ink-soft);
-      margin-top: 3mm;
-      letter-spacing: -0.01em;
-    }
-    .cover .rule {
-      width: 18mm;
-      height: 1.2pt;
-      background: var(--orange);
-      margin: 8mm 0 7mm;
-      border: 0;
-    }
-    .cover .intro {
-      max-width: 110mm;
-      font-size: 10pt;
-      color: var(--ink-mute);
-      line-height: 1.7;
-    }
-    .cover .highlights {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 4mm;
-      margin-top: 10mm;
-    }
-    .cover .highlight {
-      background: #fff;
-      border: 0.5pt solid var(--paper-line);
-      border-radius: 5pt;
-      padding: 5mm;
-    }
-    .cover .highlight .num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 7pt;
-      font-weight: 600;
-      color: var(--orange);
-      letter-spacing: 0.16em;
-    }
-    .cover .highlight h3 {
+    /* ============ Section titles ============ */
+    .section-title {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 11.5pt;
+      font-size: 22pt;
       color: var(--ink);
-      margin-top: 2.5mm;
-      line-height: 1.2;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
     }
-    .cover .highlight p {
-      font-size: 8pt;
-      color: var(--ink-mute);
-      margin-top: 2mm;
-      line-height: 1.5;
-    }
-    .cover .prepared-band {
-      position: absolute;
-      bottom: 20mm;
-      left: 18mm;
-      right: 18mm;
-      background: #fff;
-      border: 0.5pt solid var(--paper-line);
-      border-radius: 5pt;
-      padding: 6mm 7mm;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 7mm;
-    }
-    .cover .prepared-cell .label {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 6.5pt;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--ink-mute);
-      margin-bottom: 1.5mm;
-    }
-    .cover .prepared-cell .value {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 10.5pt;
-      color: var(--ink);
-      line-height: 1.2;
-    }
-    .cover .prepared-cell .meta {
-      font-size: 7.5pt;
-      color: var(--ink-mute);
-      margin-top: 1.5mm;
-    }
-    .cover .confidential-line {
-      position: absolute;
-      bottom: 10mm;
-      left: 18mm;
-      right: 18mm;
-      display: flex;
-      justify-content: space-between;
-      font-size: 7.5pt;
-      color: var(--ink-mute);
-    }
-
-    /* ===========================
-       Section number badge
-       =========================== */
-    .section-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4mm;
-      margin-bottom: 4mm;
-    }
-    .section-badge .num {
-      width: 9mm;
-      height: 9mm;
-      background: var(--ink);
-      color: #fff;
-      border-radius: 2pt;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Inter Tight', sans-serif;
-      font-weight: 700;
-      font-size: 10pt;
-    }
-    .section-badge h2 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 18pt;
-      color: var(--ink);
-      letter-spacing: -0.01em;
-    }
-    .section-badge h2 em {
+    .section-title em {
       font-style: italic;
       color: var(--orange);
       font-weight: 600;
     }
-    .section-body {
-      font-size: 9.5pt;
+    .section-lead {
+      font-size: 10pt;
       color: var(--ink-mute);
       line-height: 1.65;
       max-width: 165mm;
-      margin-bottom: 10mm;
+      margin: 4mm 0 8mm;
     }
-    .section-body strong { color: var(--ink); font-weight: 600; }
+    .section-lead strong { color: var(--ink); font-weight: 600; }
 
-    /* ----- Quote block ----- */
-    .quote-block {
-      display: flex;
-      gap: 5mm;
-      margin: 4mm 0 6mm;
-    }
-    .quote-block .qmark {
-      font-family: 'Playfair Display', serif;
-      font-size: 30pt;
-      color: var(--orange-300);
-      line-height: 0.8;
-    }
-    .quote-block blockquote {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-weight: 500;
-      font-size: 13pt;
-      color: var(--ink);
-      line-height: 1.45;
-      max-width: 150mm;
-    }
-    .quote-block .attribution {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 7.5pt;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--orange);
-      margin-top: 3mm;
-    }
-
-    /* ===========================
-       Process flow (4 steps)
-       =========================== */
-    .flow {
-      display: grid;
-      grid-template-columns: 1fr 8mm 1fr 8mm 1fr 8mm 1fr;
-      align-items: center;
-      gap: 0;
-      margin: 6mm 0 8mm;
-    }
-    .flow .step {
-      text-align: center;
-    }
-    .flow .step .icon-box {
-      width: 18mm;
-      height: 18mm;
-      background: #fff;
-      border: 0.5pt solid var(--paper-line);
-      border-radius: 5pt;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .flow .step .icon-num {
-      position: absolute;
-      top: -3mm;
-      right: -3mm;
-      width: 6mm;
-      height: 6mm;
-      background: var(--ink);
-      color: #fff;
-      border-radius: 50%;
-      font-family: 'Inter Tight', sans-serif;
-      font-weight: 700;
-      font-size: 7pt;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .flow .step .icon-box svg {
-      width: 9mm;
-      height: 9mm;
-      stroke: var(--orange);
-      fill: none;
-      stroke-width: 1.5;
-    }
-    .flow .step h4 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 10.5pt;
-      color: var(--ink);
-      margin-top: 4mm;
-    }
-    .flow .step p {
-      font-size: 7.5pt;
-      color: var(--ink-mute);
-      margin-top: 1.5mm;
-      line-height: 1.4;
-    }
-    .flow .arrow {
-      color: var(--paper-line);
-      text-align: center;
-      font-size: 12pt;
-    }
-
-    /* ===========================
-       Cards (3-col or 2-col)
-       =========================== */
+    /* ============ 3-col capability cards ============ */
     .cards-3 {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 5mm;
-      margin-top: 6mm;
-    }
-    .cards-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5mm;
-      margin-top: 6mm;
     }
     .card {
       background: #fff;
       border: 0.5pt solid var(--paper-line);
-      border-radius: 5pt;
+      border-radius: 6pt;
       padding: 6mm;
     }
     .card .icon {
@@ -472,22 +282,20 @@
       font-weight: 600;
     }
 
-    /* ===========================
-       Product cards (2x2 grid)
-       =========================== */
+    /* ============ Products 2x2 grid ============ */
     .products-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5mm;
-      margin-top: 6mm;
+      gap: 6mm;
+      margin-top: 4mm;
     }
     .product-card {
       background: #fff;
       border: 0.5pt solid var(--paper-line);
-      border-radius: 5pt;
+      border-radius: 6pt;
       overflow: hidden;
       display: grid;
-      grid-template-columns: 38mm 1fr;
+      grid-template-columns: 40mm 1fr;
     }
     .product-card .image {
       background: var(--paper-2);
@@ -498,17 +306,10 @@
     }
     .product-card .image img {
       max-width: 100%;
-      max-height: 38mm;
+      max-height: 42mm;
       object-fit: contain;
     }
-    .product-card .image .placeholder {
-      font-size: 7pt;
-      color: var(--ink-mute);
-      text-align: center;
-    }
-    .product-card .body {
-      padding: 5mm;
-    }
+    .product-card .body { padding: 5mm; }
     .product-card .cat {
       font-family: 'Inter Tight', sans-serif;
       font-size: 6.5pt;
@@ -524,31 +325,23 @@
       color: var(--ink);
       margin-top: 1.5mm;
     }
-    .product-card .desc {
-      font-size: 7.5pt;
-      color: var(--ink-mute);
-      margin-top: 2mm;
-      line-height: 1.5;
-    }
     .product-card .spec {
       margin-top: 3mm;
       padding-top: 3mm;
       border-top: 0.5pt solid var(--paper-line);
-      font-size: 7pt;
+      font-size: 7.5pt;
       color: var(--ink-soft);
-      line-height: 1.5;
+      line-height: 1.55;
     }
     .product-card .spec strong { color: var(--ink); font-weight: 600; }
 
-    /* ===========================
-       Dark "money hero" band
-       =========================== */
+    /* ============ Quality dark hero band ============ */
     .hero-band-dark {
       background: var(--ink);
       color: #fff;
-      border-radius: 5pt;
-      padding: 10mm 9mm;
-      margin: 4mm 0 6mm;
+      border-radius: 6pt;
+      padding: 11mm 10mm;
+      margin: 4mm 0 8mm;
       position: relative;
       overflow: hidden;
     }
@@ -560,23 +353,10 @@
       font-weight: 600;
       color: var(--gold);
     }
-    .hero-band-dark .complete-tag {
-      position: absolute;
-      top: 10mm;
-      right: 9mm;
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 7pt;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--gold);
-      text-align: right;
-      line-height: 1.4;
-    }
     .hero-band-dark h2 {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 30pt;
+      font-size: 28pt;
       color: #fff;
       margin-top: 4mm;
       letter-spacing: -0.01em;
@@ -588,16 +368,14 @@
       font-weight: 600;
     }
     .hero-band-dark .lede {
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.72);
       max-width: 130mm;
-      font-size: 9pt;
-      line-height: 1.6;
+      font-size: 9.5pt;
+      line-height: 1.65;
       margin-top: 4mm;
     }
 
-    /* ===========================
-       Table
-       =========================== */
+    /* ============ Registration table ============ */
     .data-table {
       width: 100%;
       border-collapse: collapse;
@@ -626,121 +404,60 @@
       font-family: 'JetBrains Mono', monospace;
       color: var(--ink);
     }
-    .data-table tbody tr:last-child td {
-      border-bottom: 0;
-      font-weight: 700;
-      color: var(--ink);
-    }
+    .data-table tbody tr:last-child td { border-bottom: 0; }
 
-    /* ===========================
-       Acceptance/contact block
-       =========================== */
-    .accept-grid {
+    /* ============ Contact block — no signatures ============ */
+    .contact-block {
+      background: #fff;
+      border: 0.5pt solid var(--paper-line);
+      border-radius: 6pt;
+      padding: 9mm 10mm;
+      margin-top: 8mm;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12mm;
-      margin-top: 4mm;
+      gap: 8mm 12mm;
     }
-    .accept-cell .role {
+    .contact-cell .label {
       font-family: 'Inter Tight', sans-serif;
-      font-size: 7.5pt;
+      font-size: 7pt;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       font-weight: 600;
-      color: var(--orange);
-      margin-bottom: 3mm;
+      color: var(--ink-mute);
+      margin-bottom: 2mm;
     }
-    .accept-cell h4 {
+    .contact-cell .value {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 13pt;
+      font-size: 12pt;
       color: var(--ink);
+      line-height: 1.25;
     }
-    .accept-cell .meta {
-      font-size: 8pt;
-      color: var(--ink-mute);
-      margin-top: 1.5mm;
-      line-height: 1.5;
-    }
-    .accept-cell .sig-line {
-      border-bottom: 0.5pt solid var(--ink);
-      height: 12mm;
-      margin-top: 8mm;
-    }
-    .accept-cell .sig-label {
-      font-size: 7pt;
-      color: var(--ink-mute);
-      margin-top: 1mm;
-    }
-
-    /* About-us callout */
-    .about-card {
-      background: var(--ink);
-      color: #fff;
-      border-radius: 5pt;
-      padding: 7mm;
-      margin: 6mm 0;
-    }
-    .about-card .label {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 7pt;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--gold);
-    }
-    .about-card h4 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 14pt;
-      color: #fff;
+    .contact-cell .detail {
+      font-size: 8.5pt;
+      color: var(--ink-soft);
+      line-height: 1.6;
       margin-top: 2mm;
     }
-    .about-card p {
-      font-size: 8.5pt;
-      color: rgba(255,255,255,0.7);
-      margin-top: 3mm;
-      line-height: 1.6;
-    }
-    .about-card .contact-line {
-      font-size: 7.5pt;
-      color: var(--gold);
-      margin-top: 4mm;
-    }
-
-    /* Section divider */
-    .closing-note {
-      text-align: center;
-      font-size: 7.5pt;
-      color: var(--ink-mute);
-      margin-top: 8mm;
-      padding-top: 4mm;
-      border-top: 0.5pt solid var(--paper-line);
-    }
-
-    /* Inline SVG sizing helper */
-    svg { display: inline-block; vertical-align: middle; }
   </style>
 </head>
 <body>
 
-  <!-- ============================================================
-       PAGE 1 — COVER
-       ============================================================ -->
+  <!-- ============ PAGE 1 — COVER ============ -->
   <section class="page cover">
-    <img src="assets/goyal-ji.png?v=2" alt="Goyal Ji" class="cover-logo">
+    <img src="assets/goyal-ji.png" alt="Goyal Ji" class="cover-logo">
 
-    <p class="cover-eyebrow">Manufacturers of Processed Foods · 2026</p>
-    <h1>Goyal<span class="deva">जी</span></h1>
-    <p class="subtitle">Company &amp; Capability Brochure</p>
+    <p class="eyebrow muted" style="color: var(--ink);">Manufacturers of processed foods · Nagpur · India</p>
+    <h1 class="lockup" style="margin-top: 4mm;">Goyal<span class="deva">जी</span></h1>
+    <p class="subtitle">Product &amp; Capability Brochure</p>
     <hr class="rule">
-    <p class="intro">A Nagpur-based manufacturer of daily-staple processed foods — 3D fryums, jeera papad, soya wadi, and makkai poha — built for repeat B2B supply across India. This brochure covers who we are, how we operate, what we make, and how to start working with us.</p>
+    <p class="intro">A Nagpur-based manufacturer of daily-staple processed foods — <strong>3D fryums, jeera papad, soya wadi, and makkai poha</strong> — built for repeat B2B supply across India. Manufactured under JP Industries with a 40+ year heritage in the food trade.</p>
 
     <div class="highlights">
       <div class="highlight">
         <p class="num">01</p>
-        <h3>40+ years of trade</h3>
-        <p>Heritage under JP Industries — from chilli trading to manufacturing.</p>
+        <h3>40+ years</h3>
+        <p>In food trade, under JP Industries.</p>
       </div>
       <div class="highlight">
         <p class="num">02</p>
@@ -750,133 +467,31 @@
       <div class="highlight">
         <p class="num">03</p>
         <h3>Pan-India dispatch</h3>
-        <p>Manufacturer-direct supply from our Nagpur facility.</p>
+        <p>Manufacturer-direct from our Nagpur facility.</p>
       </div>
     </div>
 
-    <div class="prepared-band">
-      <div class="prepared-cell">
-        <p class="label">Prepared For</p>
-        <p class="value">Distributor &amp; trade partners</p>
-        <p class="meta">Wholesale · Retail chains · HORECA</p>
-      </div>
-      <div class="prepared-cell">
-        <p class="label">Prepared By</p>
-        <p class="value">JP Industries</p>
-        <p class="meta">goyalji.in · Nagpur, Maharashtra</p>
-      </div>
-      <div class="prepared-cell">
-        <p class="label">Pricing</p>
-        <p class="value">Quote on request</p>
-        <p class="meta">Sized to your channel · 100% advance</p>
-      </div>
-    </div>
-
-    <div class="confidential-line">
-      <span>Goyal Ji · Company &amp; Capability Brochure v1.0</span>
+    <div class="footer-line">
+      <span><strong>goyalji.in</strong> &nbsp;·&nbsp; jpindustries108@gmail.com &nbsp;·&nbsp; +91 95522 07099</span>
       <span>2026</span>
     </div>
   </section>
 
 
-  <!-- ============================================================
-       PAGE 2 — OUR STORY
-       ============================================================ -->
+  <!-- ============ PAGE 2 — STORY + CAPABILITIES ============ -->
   <section class="page">
     <div class="page-header">
-      <span class="page-header-left">Goyal Ji · Company &amp; Capability Brochure</span>
-      <span class="page-header-right">01 · Our Story</span>
+      <span class="page-header-left">Goyal Ji · Product &amp; Capability Brochure</span>
+      <span class="page-header-right">01 · About</span>
     </div>
 
-    <div class="section-badge">
-      <span class="num">1</span>
-      <h2>The Heritage</h2>
-    </div>
-    <p class="section-body">Goyal Ji is the manufacturing arm of <strong>JP Industries</strong>, an enterprise rooted in four decades of India's food trade. The journey moved from <strong>red chilli trading</strong>, to <strong>cold storage &amp; warehousing</strong>, to <strong>spice processing</strong>, and finally into <strong>processed food manufacturing</strong> — each step adding infrastructure, process discipline, and category knowledge. We don't make food because it's a new market for us; we make it because we've spent a generation inside the supply chain that surrounds it.</p>
+    <p class="eyebrow">Our Story</p>
+    <h2 class="section-title" style="margin-top: 3mm;">A 40-year food-trade legacy — <em>now manufacturing.</em></h2>
+    <p class="section-lead">Goyal Ji is the manufacturing arm of <strong>JP Industries</strong>, an enterprise rooted in four decades of India's food trade — from red chilli trading and cold storage to spice processing, and today processed-food manufacturing. We don't make food because it's a new market for us; we make it because we've spent a generation inside the supply chain that surrounds it.</p>
 
-    <div class="section-badge">
-      <span class="num">2</span>
-      <h2>What We Stand For</h2>
-    </div>
-    <div class="quote-block">
-      <span class="qmark">"</span>
-      <div>
-        <blockquote>Standardised quality. Dependable supply, every batch. The same product, the same way, every single time — that's the trade we're in.</blockquote>
-        <p class="attribution">The Goyal Ji Manufacturing Standard</p>
-      </div>
-    </div>
-
-    <div class="section-badge">
-      <span class="num">3</span>
-      <h2>What We Solve</h2>
-    </div>
-    <p class="section-body">Wholesale and distribution buyers don't want surprises. They want batch-to-batch consistency, packs that match their channel, predictable lead times, and a manufacturer who picks up the phone. Goyal Ji is built around those four things — not flashy launches or seasonal categories.</p>
-
-    <div class="page-footer">
-      <span>Goyal Ji · Company &amp; Capability Brochure</span>
-      <span>Page 2 of 6</span>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       PAGE 3 — HOW WE OPERATE
-       ============================================================ -->
-  <section class="page">
-    <div class="page-header">
-      <span class="page-header-left">Goyal Ji · Company &amp; Capability Brochure</span>
-      <span class="page-header-right">02 · Operations</span>
-    </div>
-
-    <div class="section-badge">
-      <span class="num">4</span>
-      <h2>Production Flow</h2>
-    </div>
-    <p class="section-body">From raw input to dispatched truck — every batch follows the same documented sequence. Nothing leaves the facility without traceability.</p>
-
-    <div class="flow">
-      <div class="step">
-        <div class="icon-box">
-          <span class="icon-num">1</span>
-          <svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Sourcing</h4>
-        <p>Raw input from trusted regional suppliers, GRN-logged.</p>
-      </div>
-      <div class="arrow">→</div>
-      <div class="step">
-        <div class="icon-box">
-          <span class="icon-num">2</span>
-          <svg viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Processing</h4>
-        <p>Controlled production lines, batch-coded.</p>
-      </div>
-      <div class="arrow">→</div>
-      <div class="step">
-        <div class="icon-box">
-          <span class="icon-num">3</span>
-          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>QC Sign-off</h4>
-        <p>Batch-wise checks, recorded; COA on request.</p>
-      </div>
-      <div class="arrow">→</div>
-      <div class="step">
-        <div class="icon-box">
-          <span class="icon-num">4</span>
-          <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Dispatch</h4>
-        <p>TL/PTL from Nagpur, pan-India coverage.</p>
-      </div>
-    </div>
-
-    <div class="section-badge" style="margin-top: 8mm;">
-      <span class="num">5</span>
-      <h2>Our <em>Capabilities</em></h2>
-    </div>
-    <p class="section-body">The three things buyers ask about — and what we offer on each.</p>
+    <p class="eyebrow" style="margin-top: 6mm;">Capabilities</p>
+    <h2 class="section-title" style="margin-top: 3mm;">How we <em>deliver.</em></h2>
+    <p class="section-lead">Three things wholesale buyers actually ask about — and what we offer on each.</p>
 
     <div class="cards-3">
       <div class="card">
@@ -896,7 +511,7 @@
         <ul>
           <li>Batch-wise QC at every run</li>
           <li>FSSAI &amp; ISO 22000 documented</li>
-          <li>COA on request</li>
+          <li>Certificate of Analysis on request</li>
         </ul>
       </div>
       <div class="card">
@@ -912,26 +527,22 @@
     </div>
 
     <div class="page-footer">
-      <span>Goyal Ji · Company &amp; Capability Brochure</span>
-      <span>Page 3 of 6</span>
+      <span>Goyal Ji · Product &amp; Capability Brochure</span>
+      <span>Page 2 of 4</span>
     </div>
   </section>
 
 
-  <!-- ============================================================
-       PAGE 4 — OUR PRODUCTS
-       ============================================================ -->
+  <!-- ============ PAGE 3 — PRODUCTS ============ -->
   <section class="page">
     <div class="page-header">
-      <span class="page-header-left">Goyal Ji · Company &amp; Capability Brochure</span>
-      <span class="page-header-right">03 · Catalogue</span>
+      <span class="page-header-left">Goyal Ji · Product &amp; Capability Brochure</span>
+      <span class="page-header-right">02 · Range</span>
     </div>
 
-    <div class="section-badge">
-      <span class="num">6</span>
-      <h2>The Current <em>Range</em></h2>
-    </div>
-    <p class="section-body">Four SKUs across two categories — papad/snacks and breakfast/cooking essentials. All in continuous production. Quote on request.</p>
+    <p class="eyebrow">Current Range</p>
+    <h2 class="section-title" style="margin-top: 3mm;">Four SKUs in <em>continuous production.</em></h2>
+    <p class="section-lead">Across two categories — papad/snacks and breakfast/cooking essentials. All in active manufacture. Quote on request.</p>
 
     <div class="products-grid">
       <div class="product-card">
@@ -939,8 +550,7 @@
         <div class="body">
           <p class="cat">Snacks / Papad</p>
           <h3>3D Fryums</h3>
-          <p class="desc">Ready-to-fry three-dimensional fryums for consistent texture and extended shelf life.</p>
-          <div class="spec"><strong>Packs:</strong> 15 kg box · 20 kg bag · 25 kg bag<br><strong>Shelf:</strong> 6 months · cool, dry storage</div>
+          <div class="spec"><strong>Packs:</strong> 15 kg box · 20 kg bag · 25 kg bag<br><strong>Shelf:</strong> 6 months</div>
         </div>
       </div>
 
@@ -949,8 +559,7 @@
         <div class="body">
           <p class="cat">Breakfast / Cooking</p>
           <h3>Makkai Poha</h3>
-          <p class="desc">Flattened corn flakes for everyday breakfast. Retail packs or bulk.</p>
-          <div class="spec"><strong>Packs:</strong> 500 g × 15 kg box · 500 g × 15 kg bag · Loose 15 kg / 25 kg<br><strong>Shelf:</strong> 6 months · cool, dry storage</div>
+          <div class="spec"><strong>Packs:</strong> 500 g × 15 kg box · 500 g × 15 kg bag · Loose 15 kg / 25 kg<br><strong>Shelf:</strong> 6 months</div>
         </div>
       </div>
 
@@ -959,8 +568,7 @@
         <div class="body">
           <p class="cat">Papad</p>
           <h3>Jeera Papad</h3>
-          <p class="desc">Traditional cumin-flavoured papad, controlled-process produced for uniform quality.</p>
-          <div class="spec"><strong>Packs:</strong> Bulk — on request<br><strong>Shelf:</strong> 6 months · cool, dry storage</div>
+          <div class="spec"><strong>Packs:</strong> Bulk — on request<br><strong>Shelf:</strong> 8 months</div>
         </div>
       </div>
 
@@ -969,43 +577,35 @@
         <div class="body">
           <p class="cat">Protein / Cooking</p>
           <h3>Soya Wadi</h3>
-          <p class="desc">High-protein soya chunks, consistent size and texture across production runs.</p>
-          <div class="spec"><strong>Packs:</strong> Bulk — on request<br><strong>Shelf:</strong> 6 months · cool, dry storage</div>
+          <div class="spec"><strong>Packs:</strong> Bulk — on request<br><strong>Shelf:</strong> 12 months</div>
         </div>
       </div>
     </div>
 
-    <p class="closing-note">All packs and shelf-life figures are general specifications. Final commitments are confirmed in the written quotation.</p>
-
     <div class="page-footer">
-      <span>Goyal Ji · Company &amp; Capability Brochure</span>
-      <span>Page 4 of 6</span>
+      <span>Goyal Ji · Product &amp; Capability Brochure</span>
+      <span>Page 3 of 4</span>
     </div>
   </section>
 
 
-  <!-- ============================================================
-       PAGE 5 — QUALITY & COMPLIANCE
-       ============================================================ -->
+  <!-- ============ PAGE 4 — QUALITY & CONTACT ============ -->
   <section class="page">
     <div class="page-header">
-      <span class="page-header-left">Goyal Ji · Company &amp; Capability Brochure</span>
-      <span class="page-header-right">04 · Quality</span>
+      <span class="page-header-left">Goyal Ji · Product &amp; Capability Brochure</span>
+      <span class="page-header-right">03 · Quality &amp; Contact</span>
     </div>
 
-    <div class="section-badge">
-      <span class="num">7</span>
-      <h2>Quality &amp; <em>Compliance</em></h2>
-    </div>
+    <p class="eyebrow">Quality &amp; Compliance</p>
+    <h2 class="section-title" style="margin-top: 3mm;">Documented at every <em>step.</em></h2>
 
     <div class="hero-band-dark">
       <p class="eyebrow-gold">Certifications · In good standing</p>
-      <p class="complete-tag">Audit-ready<br>Documentation</p>
       <h2>FSSAI · ISO 22000 <em>· MSME · GST</em></h2>
       <p class="lede">Every batch is traceable. Every commitment is audit-ready. Documentation provided on request so your channel partners — buyers, regulators, large institutional accounts — can verify what they need to verify.</p>
     </div>
 
-    <p class="eyebrow muted" style="margin-top: 8mm;">Registration details</p>
+    <p class="eyebrow muted" style="margin-top: 4mm;">Registration details</p>
     <table class="data-table">
       <thead>
         <tr><th>Particular</th><th>Identifier</th></tr>
@@ -1018,98 +618,22 @@
       </tbody>
     </table>
 
-    <p class="eyebrow muted" style="margin-top: 8mm;">Documentation we provide</p>
-    <div class="cards-2" style="margin-top: 3mm;">
-      <div class="card">
-        <h3>On every order</h3>
-        <ul>
-          <li>Batch code on every pack</li>
-          <li>Manufacturing &amp; expiry date</li>
-          <li>GST-compliant tax invoice</li>
-          <li>Packing list with HSN codes</li>
-        </ul>
+    <div class="contact-block">
+      <div class="contact-cell">
+        <p class="label">Manufacturing &amp; office</p>
+        <p class="value">Goyal Ji · JP Industries</p>
+        <p class="detail">Goyal Building, Maskasath,<br>Itwari, Nagpur — 440002,<br>Maharashtra, India</p>
       </div>
-      <div class="card">
-        <h3>On request</h3>
-        <ul>
-          <li>Certificate of Analysis (COA)</li>
-          <li>FSSAI licence copy</li>
-          <li>ISO 22000 certificate</li>
-          <li>Manufacturing photos</li>
-        </ul>
+      <div class="contact-cell">
+        <p class="label">Reach us</p>
+        <p class="value">Trade enquiries</p>
+        <p class="detail">Phone &amp; WhatsApp: +91 95522 07099<br>Email: jpindustries108@gmail.com<br>Web: goyalji.in</p>
       </div>
     </div>
 
     <div class="page-footer">
-      <span>Goyal Ji · Company &amp; Capability Brochure</span>
-      <span>Page 5 of 6</span>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       PAGE 6 — DISTRIBUTION & CONTACT
-       ============================================================ -->
-  <section class="page">
-    <div class="page-header">
-      <span class="page-header-left">Goyal Ji · Company &amp; Capability Brochure</span>
-      <span class="page-header-right">05 · Next Step</span>
-    </div>
-
-    <div class="section-badge">
-      <span class="num">8</span>
-      <h2>How to <em>start working</em> with us</h2>
-    </div>
-    <div class="cards-2" style="margin-top: 2mm;">
-      <div class="card">
-        <h3>Apply online</h3>
-        <p>Submit a distributor application at <strong>goyalji.in/distributors</strong>. We review within 2 working days.</p>
-      </div>
-      <div class="card">
-        <h3>Or get in touch directly</h3>
-        <p>Call <strong>+91 95522 07099</strong> or email <strong>jpindustries108@gmail.com</strong> for a quotation.</p>
-      </div>
-    </div>
-
-    <div class="section-badge" style="margin-top: 8mm;">
-      <span class="num">9</span>
-      <h2>Commercials</h2>
-    </div>
-    <p class="section-body"><strong>Payment terms: 100% advance</strong> against the issued quotation. MOQ, pack format, lead times, and territory arrangements are discussed on call — sized to your channel and order pattern.</p>
-
-    <div class="about-card">
-      <p class="label">About the manufacturer</p>
-      <h4>JP Industries — the makers of Goyal Ji</h4>
-      <p>JP Industries is a Nagpur-based food enterprise built over four decades — from chilli trading to cold storage to spice processing to manufacturing. Goyal Ji is our processed-foods brand: 3D fryums, jeera papad, soya wadi, and makkai poha.</p>
-      <p class="contact-line">goyalji.in · jpindustries108@gmail.com · +91 95522 07099</p>
-    </div>
-
-    <div class="section-badge" style="margin-top: 4mm;">
-      <span class="num">10</span>
-      <h2>Contact</h2>
-    </div>
-    <div class="accept-grid">
-      <div class="accept-cell">
-        <p class="role">Manufacturing &amp; office</p>
-        <h4>Goyal Ji · JP Industries</h4>
-        <p class="meta">Goyal Building, Maskasath,<br>Itwari, Nagpur — 440002,<br>Maharashtra, India<br>GSTIN: 27ABRPG8355N1ZT</p>
-        <div class="sig-line"></div>
-        <p class="sig-label">Authorised signatory · Date</p>
-      </div>
-      <div class="accept-cell">
-        <p class="role">Reach us</p>
-        <h4>Trade enquiries</h4>
-        <p class="meta">Phone &amp; WhatsApp: +91 95522 07099<br>Email: jpindustries108@gmail.com<br>Web: goyalji.in</p>
-        <div class="sig-line"></div>
-        <p class="sig-label">Buyer signature · Date</p>
-      </div>
-    </div>
-
-    <p class="closing-note">This brochure is for general information. Final pack specifications, pricing, and commercial terms are confirmed in the written quotation.</p>
-
-    <div class="page-footer">
-      <span>Goyal Ji · Company &amp; Capability Brochure</span>
-      <span>Page 6 of 6</span>
+      <span>Goyal Ji · Product &amp; Capability Brochure</span>
+      <span>Page 4 of 4</span>
     </div>
   </section>
 
