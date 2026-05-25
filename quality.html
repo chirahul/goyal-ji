@@ -74,8 +74,9 @@
 <body class="bg-[#faf8f6] text-gray-900 font-sans antialiased overflow-x-hidden">
 
   <!-- Navigation -->
-  <nav class="fixed top-0 left-0 w-full lg:top-4 lg:left-1/2 lg:-translate-x-1/2 lg:w-[calc(100%-2rem)] lg:max-w-6xl z-50">
-    <div class="glass border-b border-white/30 lg:border lg:border-white/40 lg:rounded-2xl lg:shadow-lg lg:shadow-black/[0.03] px-5 md:px-8 py-3">
+  <nav id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-transform duration-300 will-change-transform">
+    <div class="glass border-b border-white/30">
+      <div class="max-w-6xl mx-auto px-5 md:px-8 py-3">
       <div class="flex items-center justify-between">
         <a href="index.html"><img src="assets/goyal-ji.png" alt="Goyal Ji" class="h-10 md:h-12"></a>
         <div class="hidden lg:flex items-center gap-1">
@@ -107,6 +108,7 @@
           </a>
           <a href="contact.html" class="text-[13px] font-semibold text-white bg-goyal-600 px-4 py-3 rounded-xl text-center mt-1">Contact Us</a>
         </div>
+      </div>
       </div>
     </div>
   </nav>
@@ -497,5 +499,23 @@
     if (popup) popup.addEventListener('click', (e) => { if (e.target === popup) { popup.classList.add('hidden'); popup.classList.remove('flex'); } });
   </script>
 
+  <script>
+    // Smart nav: hide on scroll down, reveal on scroll up
+    (() => {
+      const nav = document.getElementById('site-nav');
+      if (!nav) return;
+      let last = 0, ticking = false;
+      const update = () => {
+        const y = window.scrollY;
+        if (y > last && y > 80) nav.style.transform = 'translateY(-100%)';
+        else nav.style.transform = '';
+        last = y;
+        ticking = false;
+      };
+      window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>
