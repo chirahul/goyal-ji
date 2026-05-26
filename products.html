@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter+Tight:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&family=JetBrains+Mono:wght@500&display=swap">
-  <link rel="stylesheet" href="/dist/styles.css?v=11.4.0">
+  <link rel="stylesheet" href="/dist/styles.css?v=11.5.0">
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
 
@@ -217,6 +217,8 @@
                  data-image="assets/3d-fryums.webp"
                  data-packs="15 kg box|20 kg bag|25 kg bag"
                  data-default-pack="15 kg box"
+                 data-shapes="hexagon|heart|triangle|oval|bulb|fish"
+                 data-default-shape="hexagon"
                  data-qty-unit="units"
                  data-shelf="6 months"
                  data-suitable="Wholesale, Distribution, Institutional">
@@ -510,6 +512,11 @@
         <div id="quick-add-packs" class="flex flex-wrap gap-2"></div>
       </div>
 
+      <div id="quick-add-shapes-wrap" class="mt-5 hidden">
+        <label class="block text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Shape</label>
+        <div id="quick-add-shapes" class="grid grid-cols-3 gap-2"></div>
+      </div>
+
       <div class="mt-5">
         <label for="quick-add-qty" class="block text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Quantity <span class="font-normal text-gray-300 normal-case tracking-normal">(optional)</span></label>
         <div class="relative">
@@ -548,6 +555,12 @@
         <div class="mt-6 pt-6 border-t border-gray-100">
           <label class="block text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Pack format</label>
           <div id="product-modal-packs" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <!-- Shape selector (only for products with data-shapes) -->
+        <div id="product-modal-shapes-wrap" class="mt-5 hidden">
+          <label class="block text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Shape</label>
+          <div id="product-modal-shapes" class="grid grid-cols-3 sm:grid-cols-6 gap-2"></div>
         </div>
 
         <!-- Quantity + shelf -->
@@ -668,6 +681,53 @@
       link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
     });
 
+    // ===========================
+    // Shape library shared by both modals
+    // (used only by products that carry data-shapes)
+    // ===========================
+    const SHAPE_ICONS = {
+      hexagon:  '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="10 1.5 17.8 6 17.8 14 10 18.5 2.2 14 2.2 6"/></svg>',
+      heart:    '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M10 17.5C10 17.5 3 13 3 7.5 3 5.5 4.5 4 6.5 4 8 4 9.4 5 10 6.3 10.6 5 12 4 13.5 4 15.5 4 17 5.5 17 7.5 17 13 10 17.5 10 17.5Z"/></svg>',
+      triangle: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="10 2.5 18 17.5 2 17.5"/></svg>',
+      oval:     '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="10" cy="10" rx="5.5" ry="7.5"/></svg>',
+      bulb:     '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M6.5 7.5C6.5 5.6 8 4 10 4S13.5 5.6 13.5 7.5C13.5 9 12.5 10 11.5 10.5V13C11.5 14 10.7 14.7 10 14.7S8.5 14 8.5 13V10.5C7.5 10 6.5 9 6.5 7.5ZM8.5 16.5H11.5"/></svg>',
+      fish:     '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M2 10C2 10 4.5 6 9 6 13 6 15.5 8 15.5 10 15.5 12 13 14 9 14 4.5 14 2 10 2 10ZM15.5 8 19 6 19 14 15.5 12"/></svg>',
+    };
+    const SHAPE_LABELS = { hexagon:'Hexagon', heart:'Heart', triangle:'Triangle', oval:'Oval', bulb:'Bulb', fish:'Fish' };
+
+    const renderShapes = (containerEl, wrapEl, shapeKeys, defaultShape, onSelect) => {
+      if (!shapeKeys.length) {
+        wrapEl.classList.add('hidden');
+        return null;
+      }
+      wrapEl.classList.remove('hidden');
+      containerEl.innerHTML = '';
+      let selected = defaultShape || shapeKeys[0];
+      shapeKeys.forEach(key => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.dataset.shape = key;
+        btn.className = 'shape-chip flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl border transition-colors';
+        btn.innerHTML = `<span class="w-6 h-6 block">${SHAPE_ICONS[key] || ''}</span><span class="text-[11px] font-medium">${SHAPE_LABELS[key] || key}</span>`;
+        const apply = (active) => {
+          if (active) btn.className = 'shape-chip flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl border bg-goyal-600 text-white border-goyal-600 transition-colors';
+          else        btn.className = 'shape-chip flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl border bg-white text-gray-700 border-gray-300 hover:border-goyal-400 transition-colors';
+        };
+        apply(key === selected);
+        btn.addEventListener('click', () => {
+          selected = key;
+          containerEl.querySelectorAll('.shape-chip').forEach(c => {
+            const isActive = c.dataset.shape === key;
+            if (isActive) c.className = 'shape-chip flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl border bg-goyal-600 text-white border-goyal-600 transition-colors';
+            else          c.className = 'shape-chip flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl border bg-white text-gray-700 border-gray-300 hover:border-goyal-400 transition-colors';
+          });
+          onSelect(selected);
+        });
+        containerEl.appendChild(btn);
+      });
+      return selected;
+    };
+
     // === Products page: detail modal ===
     (() => {
       const modal = document.getElementById('product-modal');
@@ -684,9 +744,12 @@
       const suitableEl = document.getElementById('modal-suitable');
       const sendBtn = document.getElementById('modal-send-whatsapp');
       const addBtn = document.getElementById('modal-add-to-cart');
+      const shapesEl = document.getElementById('product-modal-shapes');
+      const shapesWrap = document.getElementById('product-modal-shapes-wrap');
 
       let currentTile = null;
       let selectedPack = '';
+      let selectedShape = '';
 
       const renderPacks = (packs, defaultPack) => {
         selectedPack = defaultPack;
@@ -734,6 +797,9 @@
         nameEl.textContent = tile.dataset.name || '';
         descEl.textContent = tile.dataset.description || '';
         renderPacks((tile.dataset.packs || '').split('|').filter(Boolean), tile.dataset.defaultPack || '');
+        // Shape selector — only for products that carry data-shapes
+        const shapes = (tile.dataset.shapes || '').split('|').filter(Boolean);
+        selectedShape = renderShapes(shapesEl, shapesWrap, shapes, tile.dataset.defaultShape || '', (s) => selectedShape = s) || '';
         qtyEl.value = '';
         qtyUnitEl.textContent = tile.dataset.qtyUnit || '';
         shelfEl.textContent = tile.dataset.shelf || '';
@@ -771,6 +837,7 @@
         const unit = currentTile.dataset.qtyUnit;
         const notes = notesEl.value.trim();
         let msg = `Hi Goyal Ji, I'd like to enquire about:\n\n• ${name}\n  Pack: ${selectedPack}`;
+        if (selectedShape) msg += `\n  Shape: ${SHAPE_LABELS[selectedShape] || selectedShape}`;
         if (qty) msg += `\n  Qty: ${qty} ${unit}`;
         if (notes) msg += `\n\nNotes: ${notes}`;
         msg += '\n\n— Sent from goyalji.in';
@@ -793,6 +860,8 @@
           id: currentTile.dataset.productId,
           name: currentTile.dataset.name,
           pack: selectedPack,
+          shape: selectedShape || '',
+          shapeLabel: selectedShape ? (SHAPE_LABELS[selectedShape] || selectedShape) : '',
           qty: qtyEl.value.trim(),
           unit: currentTile.dataset.qtyUnit,
           notes: notesEl.value.trim()
@@ -812,9 +881,12 @@
       const qaConfirm = document.getElementById('quick-add-confirm');
       const qaDetails = document.getElementById('quick-add-details');
       const qaClose = document.getElementById('close-quick-add');
+      const qaShapes = document.getElementById('quick-add-shapes');
+      const qaShapesWrap = document.getElementById('quick-add-shapes-wrap');
 
       let currentTile = null;
       let selectedPack = '';
+      let selectedShape = '';
 
       const applyChipStyle = (el, active) => {
         if (active) {
@@ -844,6 +916,9 @@
           });
           qaPacks.appendChild(btn);
         });
+        // Shape selector — render only if product has data-shapes
+        const shapeKeys = (tile.dataset.shapes || '').split('|').filter(Boolean);
+        selectedShape = renderShapes(qaShapes, qaShapesWrap, shapeKeys, tile.dataset.defaultShape || '', (s) => selectedShape = s) || '';
         qaModal.classList.remove('hidden');
         qaModal.classList.add('flex');
         document.body.style.overflow = 'hidden';
@@ -884,6 +959,8 @@
           id: currentTile.dataset.productId,
           name: currentTile.dataset.name,
           pack: selectedPack,
+          shape: selectedShape || '',
+          shapeLabel: selectedShape ? (SHAPE_LABELS[selectedShape] || selectedShape) : '',
           qty: qaQty.value.trim(),
           unit: currentTile.dataset.qtyUnit,
           notes: ''
@@ -953,7 +1030,7 @@
           row.innerHTML = `
             <div class="flex-1 min-w-0">
               <p class="text-sm font-semibold text-gray-900 truncate">${escapeHtml(item.name)}</p>
-              <p class="mt-0.5 text-xs text-gray-500">${escapeHtml(item.pack)}${item.qty ? ` &middot; ${escapeHtml(item.qty)} ${escapeHtml(item.unit || '')}` : ''}</p>
+              <p class="mt-0.5 text-xs text-gray-500">${escapeHtml(item.pack)}${item.shapeLabel ? ` &middot; ${escapeHtml(item.shapeLabel)}` : ''}${item.qty ? ` &middot; ${escapeHtml(item.qty)} ${escapeHtml(item.unit || '')}` : ''}</p>
               ${item.notes ? `<p class="mt-1 text-xs text-gray-400 italic">${escapeHtml(item.notes)}</p>` : ''}
             </div>
             <button type="button" class="js-remove w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-700 transition-colors flex-shrink-0" data-idx="${i}" aria-label="Remove ${escapeHtml(item.name)}">
@@ -1000,6 +1077,7 @@
         let msg = "Hi Goyal Ji, I'd like to enquire about the following:\n\n";
         cart.forEach(item => {
           msg += `• ${item.name} — ${item.pack}`;
+          if (item.shapeLabel) msg += ` (${item.shapeLabel})`;
           if (item.qty) msg += ` × ${item.qty} ${item.unit || ''}`;
           if (item.notes) msg += ` (${item.notes})`;
           msg += '\n';
