@@ -3,8 +3,8 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    { "source": "/((?!maintenance).*)", "destination": "/maintenance.html" }
+  "redirects": [
+    { "source": "/((?!maintenance).*)", "destination": "/maintenance.html", "permanent": false }
   ],
   "headers": [
     {
