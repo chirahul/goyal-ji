@@ -3,9 +3,6 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    { "source": "/((?!maintenance).*)", "destination": "/maintenance.html", "permanent": false }
-  ],
   "headers": [
     {
       "source": "/assets/(.*)",
